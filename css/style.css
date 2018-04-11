@@ -1,0 +1,197 @@
+/***  Name: Nnabugwu Victory Ekene
+        project: Address Book 
+        Andela Learning Community 2.0       ***/
+/**** Address book styling ****/
+
+body, div, span, applet, object, iframe, 
+ h3, h4, h5, h6, p, blockquote, pre, 
+a, abbr, acronym, address, big, cite, code, 
+del, dfn, em, img, ins, kbd, q, s, samp, 
+small, strike, strong, sub, sup, tt, var, 
+b, u, i, center, dl, dt, dd, ul, ol, fieldset, form, label, legend, 
+table, caption, tbody, tfoot, thead, tr, th, td, 
+article, aside, canvas, details, embed,  
+figure, figcaption, footer, header, hgroup,  
+menu, nav, output, ruby, section, summary, 
+time, mark, audio, video{ 
+    font-family: trebuchet ms, ff-meta-web-pro, sans-serif;
+    color: #817373;
+    font-size:14px;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+/**** containers  ****/
+.wrapper{
+    width:auto; height:inherit;
+    padding: 5px;
+} 
+
+/********  aside  *********/
+.col-1{
+    width:100px; height: 400px; border:1px solid #f08c18; float:left; background: #2e3133;
+}
+
+.col-1 {width: auto; height: 460px; padding: 12px; display: block;}
+.col-1 li a{ display:block; margin-bottom: 10px;}
+
+
+.col-1 li a:hover{
+    background: #d13535;
+}
+
+.col-1 .active{
+    background: #be2f2f;
+}
+
+
+.container{
+    width:600px; height:auto; float: left; margin-left: 4px; padding:4px; display: block;
+}
+
+.footer {
+    width: 100%; height:10px;  clear: both; float:left; background: #151313;  color:#fff; text-align: center; padding: 2px 0; z-index: 1; margin-top: 39px; font-size: 11px;
+}
+
+
+/**** user list container ***/
+
+#primary{
+    border: 1px solid #afaaaa; width: auto; height: 110px; box-shadow: 1px 1px 1px 1px rgba(129, 129, 129, 0.48); display: block;
+}
+
+
+#secondary{
+    border: 1px solid #afaaaa; width: auto; height: 120px; box-shadow: 1px 1px 1px 1px rgba(129, 129, 129, 0.48);  display:block; padding:14px 10px; margin: 10px 0;
+}
+
+.sec-col{width: auto; height: 100px;}
+
+.sec-col-img{ width: 100px; margin:0; padding:0; height: 100px; border:1px solid #111;  float: left;}
+
+.sec-col-1{width: auto;  margin: 10px auto; padding-left:120px; }
+
+/*******  titles  ********/
+.col-title{width: auto; height:40px; border: 1px groove #111; clear: both; }
+.col-title img{float: left;}
+/***   other relative styling   ***/
+
+#primary, .col-title{ margin-bottom: 6px;}
+.container, .col-title, .footer, #primary{padding: 10px; }
+.col-title h1{position: relative; bottom:10px; left: 6px;}
+
+
+/******   VIEW CONTACT STYLING    *******/
+.col-view{
+    width:600px; height:580px; border-right: 1px dotted #1b92dd; float: left; margin-left: 4px; padding:4px;}
+
+.lg-view{
+    width: auto; height: auto;
+}
+
+.lg-view figure img{ margin:0 auto; position: relative; left:100px; width: 50%; padding:15px; border: 1px solid #92f800; border-radius: 150px}
+
+.Details{
+    width: auto; height: 200px; border: 1px solid #111; margin-top:4px;
+}
+.Details figure{ background: #2e3133; padding: 5px 0; }
+figure figcaption img{
+    width: auto; height: inherit;  margin-right: 20px; 
+    position: relative; left: 10px; top: 9.6px; padding-bottom: 5px
+}
+
+.Details figcaption{
+    width: auto; height: inherit; color:#111; margin-bottom: 10px; ;   color: #fff;
+}
+
+.edit-caption{ padding-left: 10em; }
+
+/*******    ADD CONTACT   *****/
+.profile_pix figure img{
+     margin: 0 auto; position: relative; left:150px; width: 40%; border: 1px solid #73AD21;
+}
+
+.col-add{
+    width:auto;  padding:2px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);   
+}
+
+/***   ***/
+.form input[type=email]{
+    background: url('../images/Email_14px.png') no-repeat  10px 10px;   }
+
+.form input[type=text]{
+    background: url('../images/User_16px.png') no-repeat  10px 10px;   }
+
+.form input[type=tel]{
+    background: url('../images/Android_16px.png') no-repeat  10px 10px;   }
+
+.form input[type="submit"]{
+    background: ;
+    color:#111;
+}
+
+.form input[type="submit"]:hover{
+    background: #be2f2f; color:#fff;
+}
+
+#col-form input{ width: 400px; height: 40px; margin: 10px 0; font-family: trebuchet ms, sans-serif; box-sizing: border-box; border: 1px solid #a3a3a3;  -webkit-transition: 0.5s; transition: 0.5s; padding-left: 40px;
+outline: none; }
+
+.col-form input{ width: 400px; height: 40px; margin: 11px 0; font-family: trebuchet ms, sans-serif; box-sizing: border-box; border: 1px solid #a3a3a3;  -webkit-transition: 0.5s; transition: 0.5s; padding-left: 40px;
+outline: none; }
+
+.form input:focus {
+    border: 1px solid #dd1313;
+}
+
+.col-form, #col-form{padding: 4px 0px 0px 85px;}
+.col-form:first-child{margin-top:13px;}
+
+
+.forms{width: auto;  border:1px solid #837e7e; }
+
+.Add_contact{height: 780px;}
+
+
+
+/***   EDIT CONTACT    ***/
+
+.profile_pix input[type=file]{
+    border: 1px solid #111; margin: 0 124px;
+}
+
+
+/**   DELETE CONTACT  **/
+#delAll{ float: left; position:absolute; cursor: pointer; top:7.7em; left:46em;}
+
+figcaption button {float: left; background: none; border: 0; cursor: pointer;}
+
+/***   success  ***/
+.col-success a li img{ float:left; margin-right: 15px;}
+/***   edit  ***/
+.edit-caption a li img{ float:left; margin-right: 15px;}
+.edit-caption a li img:hover{ border:1px solid #f00;}
+/***   view  ***/
+figcaption a li img{ position: relative; left:1px; top:1px;  display: block;}
+
+.col-figure{ margin-top: 8.5em; padding-left:3em; }
+
+figcaption h1{text-align: center;}
+.col-success{ padding-left:17em;}
+.col-success li img{ -webkit-transition: 0.5s; transition: 0.5s; 
+outline: none;}
+
+.col-success li img:hover{ border: 1px solid #ac1e1e;}
+
+
+.col-delete li img{ -webkit-transition: 0.5s; transition: 0.5s; 
+outline: none;}
+
+.col-delete li img:hover{ border: 1px solid #ac1e1e;}
+
+
+.label { 
+     font-size: 16px; color: #111;
+}
+
+ /*   }
