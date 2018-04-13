@@ -44,7 +44,7 @@ id = new Date().getTime();
 
         for(var i=0; i<localStore.length; i++) {
             
-            let showValue = '<div id="secondary"><a><div class="sec-col"><img class="sec-col-img" src="images/Male%20User_100px.png" alt="User"><h1 class="sec-col-1" id="User_1">' +localStore[i].firstname+ ' ' + localStore[i].lastname+ '</h1><h2 class="sec-col-1" id="telephone_1">' +localStore[i].tel+ '</h2><h3 class="sec-col-1" id="Email_1">' +localStore[i].Email+ '</h3></div><figcaption class="col-delete"></button><button onclick="onView('+localStore[i].id+')"  title="view  contact"><li><img src="images/User_20px.png"></li></button><button onclick="onView('+localStore[i].id+')"  title="Edit contact"><li><img src="images/Edit Profile_20px.png"></li></button></a></figcaption></a></div>';
+            let showValue = '<div id="secondary"><a><div class="sec-col"><img class="sec-col-img" src="images/Male%20User_100px.png" alt="User"><h1 class="sec-col-1" id="User_1">' +localStore[i].firstname+ ' ' + localStore[i].lastname+ '</h1><h2 class="sec-col-1" id="telephone_1">' +localStore[i].tel+ '</h2><h3 class="sec-col-1" id="Email_1">' +localStore[i].Email+ '</h3></div><figcaption class="col-delete"></button><button onclick="viewContact('+localStore[i].id+')"  title="view  contact"><li><img src="images/User_20px.png"></li></button><button onclick="onView('+localStore[i].id+')"  title="Edit contact"><li><img src="images/Edit Profile_20px.png"></li></button></a></figcaption></a></div>';
 
             getCol.innerHTML += showValue;
         }
@@ -99,7 +99,7 @@ function onView(id){
     //display block then clicked.
 let edit = document.getElementById('edit').style.display = "block";
 //    edit.style.transition = "";
-    localStore = JSON.parse(localStorage.getItem('localStore'));
+localStore = JSON.parse(localStorage.getItem('localStore'));
     //linear search algorithm
     for (let i=0; i < localStore.length; i++){
         //argument
@@ -117,7 +117,7 @@ updateUser.innerHTML = '<div id="col-form">' + '<input type="submit" value="Upda
    
 }
 
-
+        //     view contact
 function xenderIt(id){
    localStore = JSON.parse(localStorage.getItem('localStore'));
     var form = document.getElementById('myForm');
@@ -127,20 +127,32 @@ function xenderIt(id){
         if (localStore[i].id == id){
             localStore[i].firstname = form.fname.value;
             localStore[i].lastname = form.lname.value;
-            localStore[i].Email = form.lname.value;
+            localStore[i].Email = form.email.value;
             localStore[i].tel = form.telephone.value;
             //stringify it to update the object in the array
             localStorage.setItem('localStore', JSON.stringify(localStore));
             break;
-    
         }
     }
     
-//   confirm('it is working');
-//    confirm(id);
 }
 
+let view_contact = document.getElementById('init').style.display = "none";
+    
+    function viewContact(id){
+    let view_contact = document.getElementById('init').style.display = "block";
+    localStore = JSON.parse(localStorage.getItem('localStore'));
+        
+    for (let i = 0; i < localStore.length; i++){
+        
+    if (localStore[i].id == id){
+        document.getElementById('User').innerHTML = localStore[i].firstname + ' ' + localStore[i].lastname;
+        document.getElementById('telephone').innerHTML = localStore[i].tel;
+        document.getElementById('Email').innerHTML = localStore[i].Email;
+        }
+    }
 
+    }
 
 
 
