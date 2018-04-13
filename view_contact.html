@@ -1,6 +1,3 @@
-<!----  Name: Nnabugwu Victory Ekene
-        project: Address Book 
-        Andela Learning Community 2.0    ----->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,9 +11,9 @@
     <link rel="icon" href="images/icons8_Address_Book.ico">
 </head>
     
-<body onload="viewData()">
+<body onload="exportDataToView()">
     <!---- header ---->
-<div class="wrapper">
+<div class="wrapper" id="viewContent">
     <div class="col-title">
             <img src="images/Address%20Book_50px.png" />
             <h1> Address Book</h1>
@@ -26,56 +23,19 @@
     <div class="col-1">
         
    
-        <li class="col-1-pad active" ><a href="index.html"><img src="images/People_50px.png" title="View Contact">
+    <li class="col-1-pad active" ><a href="index.html"><img src="images/People_50px.png" title="View Contact">
             </a></li> 
         
      <li><a href="add_contact.html"><img src="images/Add%20User%20Male_50px.png" title="New contact"></a></li>
         
     <li><a href="Delete_contact.html"><img src="images/Trash_50px.png" title="Delete Contact"></a></li>
-        
-    <li><a href="Edit_contact.html"><img src="images/Edit%20Profile_50px.png" title="Edit Contact"></a></li>
-        
 
       
          
     </div>
            
     <!---  body   ----->
-    <div class="container col-view">
-        <div class="col-title">
-            <img src="images/User_50px.png" />
-            <h1 id="User"></h1>
-        </div>
-        
-    <div class="lg-view">
-        <figure>
-            <img src="images/Contacts_100px.png" alt="">
-        </figure> 
-    </div>
-        <!---  Details of the user  --->
-    <div class="Details">
-    <figure>
-        <figcaption> <span><img src="images/Android_20px.png"></span ><span id="telephone">07069541209</span></figcaption>
-        
-        <figcaption> <span><img src="images/Gmail_20px.png"></span><span id="Email">szencskyz13@gmail.com</span></figcaption>
-         
-        
-    </figure>
-        
-        <figcaption class="edit-caption">
-            <a href="Delete_contact.html" title="Delete contact">
-                <li><img src="images/Trash_20px.png"/></li>
-            </a>
-            <a href="Edit_contact.html" title="Edit contact">
-                <li><img src="images/Edit%20Profile_20px.png"/></li>
-            </a>  
-        </figcaption> 
-        
 
-    </div>    
-        
-        
-    </div>
     
     <footer class="footer">
         &copy; Copyright 2018 Address book  | Powered by Andela learning community 2.0
@@ -85,7 +45,7 @@
     
        
     <!---   local storage  ---->
-<script type="text/javascript" src="js/Local_storage.js"></script>       
+    <script type="text/javascript" src="js/Local_storage.js"></script> <script type="text/javascript" src="js/xamarin.js"> </script>     
 </body>
  
 

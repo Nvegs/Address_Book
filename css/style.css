@@ -46,7 +46,7 @@ time, mark, audio, video{
 
 
 .container{
-    width:600px; height:auto; float: left; margin-left: 4px; padding:4px; display: block;
+    width:600px; height:auto; float: left; margin-left: 4px; padding:4px; display: block; float
 }
 
 .footer {
@@ -56,13 +56,10 @@ time, mark, audio, video{
 
 /**** user list container ***/
 
-#primary{
-    border: 1px solid #afaaaa; width: auto; height: 110px; box-shadow: 1px 1px 1px 1px rgba(129, 129, 129, 0.48); display: block;
-}
 
 
 #secondary{
-    border: 1px solid #afaaaa; width: auto; height: 120px; box-shadow: 1px 1px 1px 1px rgba(129, 129, 129, 0.48);  display:block; padding:14px 10px; margin: 10px 0;
+    border: 1px solid #afaaaa; width: auto; height: 120px; box-shadow: 1px 1px 1px 1px rgba(129, 129, 129, 0.48);  display:block; padding:14px 10px; margin: 10px 0; cursor: pointer;
 }
 
 .sec-col{width: auto; height: 100px;}
@@ -194,4 +191,4 @@ outline: none;}
      font-size: 16px; color: #111;
 }
 
- /*   }
+ 

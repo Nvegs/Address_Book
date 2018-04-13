@@ -1,13 +1,5 @@
-//various function.
-// Author: NVEGS
-//javascript basics Alc 2.0
-
-//global variable.
-
-let localStore;
-var Users;
-var img;
-var id;
+"use strict";
+let localStore, Users, img, id;
 
 
     //to check if any data has been store in in localstorage.
@@ -44,53 +36,15 @@ id = new Date().getTime();
     localStorage.setItem('localStore', JSON.stringify(localStore));
 
     }
- 
-
-
-function viewData(){
-   
-localStore = JSON.parse(localStorage.getItem('localStore'));
-    
-//        for (var i = 0; i < localStore.length; i++){
-//          //Argument to check if the id both match.
-//         if (localStore[i].id == id){
-////             //pass a function
-////               
-////     document.getElementById('User').innerHTML = localStore[i].firstname + ' ' + localStore[i].lastname;
-////             
-////    document.getElementById('telephone').innerHTML = localStore[i].tel;
-////    
-////     document.getElementById('Email').innerHTML = localStore[i].Email;         
-
-//          
-//     
-//        }
-//   
-//}
-            console.log(id);
-//            console.log(localStore[i].id);
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
 
     // to display data whenever we add
-    function retrieve(){
+    function retrieve(){    
         localStore = JSON.parse(localStorage.getItem('localStore'));
         let getCol = document.getElementById('listItem');
 
-        for(let i=0; i<localStore.length; i++) {
-            let showValue = '<div id="primary"><a href="view_contact.html"><div class="sec-col"><img class="sec-col-img" src="images/Male%20User_100px.png" alt="User"><h1 class="sec-col-1" id="User_1">' +localStore[i].firstname+ ' ' + localStore[i].lastname+ '</h1><h2 class="sec-col-1" id="telephone_1">' +localStore[i].tel+ '</h2><h3 class="sec-col-1" id="Email_1">' +localStore[i].Email+ '</h3></div></a></div>';
+        for(var i=0; i<localStore.length; i++) {
+            
+            let showValue = '<div id="secondary"><a><div class="sec-col"><img class="sec-col-img" src="images/Male%20User_100px.png" alt="User"><h1 class="sec-col-1" id="User_1">' +localStore[i].firstname+ ' ' + localStore[i].lastname+ '</h1><h2 class="sec-col-1" id="telephone_1">' +localStore[i].tel+ '</h2><h3 class="sec-col-1" id="Email_1">' +localStore[i].Email+ '</h3></div><figcaption class="col-delete"></button><button onclick="onView('+localStore[i].id+')"  title="view  contact"><li><img src="images/User_20px.png"></li></button><button onclick="onView('+localStore[i].id+')"  title="Edit contact"><li><img src="images/Edit Profile_20px.png"></li></button></a></figcaption></a></div>';
 
             getCol.innerHTML += showValue;
         }
@@ -101,35 +55,17 @@ localStore = JSON.parse(localStorage.getItem('localStore'));
 
 //retrieve all data list to be deleted
     function retDelDATA(){
-            localStore = JSON.parse(localStorage.getItem('localStore'));
+     localStore = JSON.parse(localStorage.getItem('localStore'));
             let getDelCol = document.getElementById('deleteItem');
 
-            for (let i=0; i < localStore.length; i++){
+        for (var i=0; i < localStore.length; i++){
 
-    let showDelValue = '<div id="secondary"><div class="sec-col"><img class="sec-col-img" src="images/Male%20User_100px.png" alt="User"><h1 id="User" class="sec-col-1" >' +localStore[i].firstname+ ' ' + localStore[i].lastname+ '</h1><h2 id="telephone" class="sec-col-1" >' +localStore[i].tel+ '</h2><h3 id="Email" class="sec-col-1">' +localStore[i].Email+ '</h3></div><figcaption class="col-delete"><button href="Delete_contact.html" onclick="xamarin('+localStore[i].id+')"  title="Delete contact"><li><img src="images/Trash_20px.png"></li></button><a href="Edit_contact.html" title="Edit contact"><li><img src="images/Edit%20Profile_20px.png"/></li></a></figcaption></div>';
+    let showDelValue = '<div id="secondary"><div class="sec-col"><img class="sec-col-img" src="images/Male%20User_100px.png" alt="User"><h1 id="User" class="sec-col-1" >' +localStore[i].firstname+ ' ' + localStore[i].lastname+ '</h1><h2 id="telephone" class="sec-col-1" >' +localStore[i].tel+ '</h2><h3 id="Email" class="sec-col-1">' +localStore[i].Email+ '</h3></div><figcaption class="col-delete"><button  onclick="xamarin('+localStore[i].id+')"  title="Delete contact"><li><img src="images/Trash_20px.png"></li></button><button onclick="onView('+localStore[i].id+')"  title="Edit contact"><li><img src="images/Edit Profile_20px.png"></li></button></figcaption></div>';
 
          getDelCol.innerHTML += showDelValue;
 
             }
     }
-
-
-
-
-
-
-
-
-// to delete all data from localstorage.
-        let delAll = document.getElementById('delAll');
-        delAll.addEventListener('click', function(){
-        localStorage.clear();
-//  reload after deleting all users in the list.
-            location.reload();
-        },false);
-
-
-
 
 
 //delete a particular user from the list
@@ -141,17 +77,84 @@ localStore = JSON.parse(localStorage.getItem('localStore'));
           //Argument to check if the id both match.
          if (localStore[i].id == id){
              //pass a function
-             window.confirm('Are you sure you want to delete' + ' ' + localStore[i].firstname + ' ' + localStore[i].lastname);
-             localStore.splice(i, 1);
+            confirm('Are you sure you want to delete' + ' ' + localStore[i].firstname + ' ' + localStore[i].lastname);
+             
+            localStore.splice(i, 1);
               //store the array in local storage.
             localStorage.setItem('localStore', JSON.stringify(localStore));
-//             console.log(localStore[i].id);
-//              console.log(id);
-             break;
-        }
+             location.reload();
+             return true;
+         }
+        
+            
+            }
 
      
+                    }
+
+//displays none for the edit page.
+ let edit = document.getElementById('edit').style.display = "none";
+
+function onView(id){
+    //display block then clicked.
+let edit = document.getElementById('edit').style.display = "block";
+//    edit.style.transition = "";
+    localStore = JSON.parse(localStorage.getItem('localStore'));
+    //linear search algorithm
+    for (let i=0; i < localStore.length; i++){
+        //argument
+        if (localStore[i].id == id){
+    document.getElementById('fname').value = localStore[i].firstname;
+    document.getElementById('lname').value = localStore[i].lastname;
+    document.getElementById('email').value = localStore[i].Email;
+    document.getElementById('tel').value = localStore[i].tel;
+    //button to update the current user.
+var updateUser = document.getElementById('updateUser');
+updateUser.innerHTML = '<div id="col-form">' + '<input type="submit" value="Update" onclick="xenderIt('+localStore[i].id+')">' + '</div>';
+            break;
         }
-    location.reload();
+    }
+   
 }
 
+
+function xenderIt(id){
+   localStore = JSON.parse(localStorage.getItem('localStore'));
+    var form = document.getElementById('myForm');
+    
+    for (let i = 0; i < localStore.length; i++){
+        
+        if (localStore[i].id == id){
+            localStore[i].firstname = form.fname.value;
+            localStore[i].lastname = form.lname.value;
+            localStore[i].Email = form.lname.value;
+            localStore[i].tel = form.telephone.value;
+            //stringify it to update the object in the array
+            localStorage.setItem('localStore', JSON.stringify(localStore));
+            break;
+    
+        }
+    }
+    
+//   confirm('it is working');
+//    confirm(id);
+}
+
+
+
+
+
+
+//
+//// to delete all data from localstorage.
+//    let delAll = document.getElementById('delAll');
+//    delAll.addEventListener('click', function(){
+//        confirm('Do you want to delete all your contact')
+//            localStorage.clear();
+//            //  reload after deleting all users in the list.
+//            location.reload();
+//    
+//        
+//
+//        },false);
+//
