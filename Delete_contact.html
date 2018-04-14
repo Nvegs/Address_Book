@@ -44,6 +44,65 @@
 
 
     </div>
+    
+    
+    <div class="container" id="edit">
+            
+        <div class="Add_contact">
+        <!----  title    ---->
+        <div class="col-title">
+            <img src="images/Edit%20Profile_gray_50px.png" />
+            <h1> Edit contact</h1>
+        </div>
+        
+        <!---- user list container   --->
+       
+
+        
+        <div class="forms">
+            <form class="form" id="myForm" enctype="multipart/form-data" autocomplete="on">
+                
+        <div class="col-add">
+            <!--  name  --->
+          <div class="profile_pix">
+              <figure>
+                <img id="image_preview" src="images/Male%20User_100px.png" accept="image/jpeg">
+              <figcaption><input type="file" id="upload" name="upload"></figcaption>
+              </figure>
+            </div>
+        </div>
+                
+                <div class="col-form">
+                    <input type="text"  placeholder="First Name" id="fname" name="fname" required>
+                </div>
+                
+                 <div class="col-form">
+                    <input type="text"  placeholder="Last Name"  required id="lname" id="lname">
+                </div>
+                
+                <div class="col-form">
+                    <input type="email"  placeholder="Enter your email"  required id="email" name="email">
+                </div>
+                
+                <div class="col-form">
+                    <input type="tel" name="telephone" placeholder="Phone No" required id="tel">
+                </div>
+                
+                <div id="updateUser"></div>
+<!--
+                <div id="col-form">
+                    <input type="submit"   onclick="updateUser()" >
+                </div>
+-->
+                
+                
+                
+            </form>
+                
+        </div>
+ </div> 
+    
+    </div>
 
     <div class="footer">
        &copy; Copyright 2018 Address book  | Powered by Andela learning community 2.0

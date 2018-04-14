@@ -1,4 +1,4 @@
-"use strict";
+"use strict"; //detecting problems in my code.
 let localStore, Users, img, id;
 
 
@@ -69,7 +69,7 @@ id = new Date().getTime();
 
 
 //delete a particular user from the list
-function xamarin(id){
+    function xamarin(id){
    
 localStore = JSON.parse(localStorage.getItem('localStore'));
     
@@ -93,9 +93,9 @@ localStore = JSON.parse(localStorage.getItem('localStore'));
                     }
 
 //displays none for the edit page.
- let edit = document.getElementById('edit').style.display = "none";
+    let edit = document.getElementById('edit').style.display = "none";
 
-function onView(id){
+    function onView(id){
     //display block then clicked.
 let edit = document.getElementById('edit').style.display = "block";
 //    edit.style.transition = "";
@@ -117,8 +117,8 @@ updateUser.innerHTML = '<div id="col-form">' + '<input type="submit" value="Upda
    
 }
 
-        //     view contact
-function xenderIt(id){
+        //     update existing data
+    function xenderIt(id){
    localStore = JSON.parse(localStorage.getItem('localStore'));
     var form = document.getElementById('myForm');
     
@@ -137,8 +137,9 @@ function xenderIt(id){
     
 }
 
-let view_contact = document.getElementById('init').style.display = "none";
+    let view_contact = document.getElementById('init').style.display = "none";
     
+    //view contact
     function viewContact(id){
     let view_contact = document.getElementById('init').style.display = "block";
     localStore = JSON.parse(localStorage.getItem('localStore'));
@@ -157,16 +158,16 @@ let view_contact = document.getElementById('init').style.display = "none";
 
 
 
-//
-//// to delete all data from localstorage.
-//    let delAll = document.getElementById('delAll');
-//    delAll.addEventListener('click', function(){
-//        confirm('Do you want to delete all your contact')
-//            localStorage.clear();
-//            //  reload after deleting all users in the list.
-//            location.reload();
-//    
-//        
-//
-//        },false);
-//
+
+// to delete all data from localstorage.
+    let delAll = document.getElementById('delAll');
+    delAll.addEventListener('click', function(){
+        confirm('Do you want to delete all your contact')
+            localStorage.clear();
+            //  reload after deleting all users in the list.
+            location.reload();
+    
+        
+
+        },false);
+

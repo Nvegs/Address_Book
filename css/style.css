@@ -80,25 +80,30 @@ time, mark, audio, video{
 
 /******   VIEW CONTACT STYLING    *******/
 .col-view{
-    width:600px; height:580px; border-right: 1px dotted #1b92dd; float: left; margin-left: 4px; padding:4px;}
+    width:600px; height:580px;  float: left; margin-left: 4px; padding:4px;}
 
 .lg-view{
-    width: auto; height: auto;
+    width: auto; height: auto; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
 }
 
-.lg-view figure img{ margin:0 auto; position: relative; left:100px; width: 50%; padding:15px; border: 1px solid #92f800; border-radius: 150px}
+.lg-view figure img{ position: relative; left:430px; width: 50%; padding: 15px; border: 1px solid #92f800; border-radius: 150px
+}
+
+ #view_img{ position: relative; left:110px; width: 50%; padding: 15px; border: 1px solid #92f800; border-radius: 150px
+}
+#Email, #telephone{font-size: 20px;}
 
 .Details{
-    width: auto; height: 200px; border: 1px solid #111; margin-top:4px;
+    width: auto; height: 200px;  border-bottom: 1px solid #d1c6c6; margin-top:4px; padding-top: 10px;
 }
-.Details figure{ background: #2e3133; padding: 5px 0; }
+.Details figure{ background: rgba(211, 221, 227, 0.47); padding: 5px 0; color: #fff; }
+
 figure figcaption img{
-    width: auto; height: inherit;  margin-right: 20px; 
-    position: relative; left: 10px; top: 9.6px; padding-bottom: 5px
+    width: auto; height: inherit;  margin-right: 20px;  position: relative; left: 10px; top: 9.6px; padding-bottom: 5px;
 }
 
 .Details figcaption{
-    width: auto; height: inherit; color:#111; margin-bottom: 10px; ;   color: #fff;
+    width: auto; height: inherit; color:#111; 
 }
 
 .edit-caption{ padding-left: 10em; }
@@ -173,8 +178,8 @@ figcaption a li img{ position: relative; left:1px; top:1px;  display: block;}
 
 .col-figure{ margin-top: 8.5em; padding-left:3em; }
 
-figcaption h1{text-align: center;}
-.col-success{ padding-left:17em;}
+figcaption h1{margin-left: 570px; text-align: center;}
+.col-success{ position: relative; left: 27em; padding-left:17em;}
 .col-success li img{ -webkit-transition: 0.5s; transition: 0.5s; 
 outline: none;}
 
