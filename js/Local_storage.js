@@ -139,7 +139,7 @@ updateUser.innerHTML = '<div id="col-form">' + '<input type="submit" value="Upda
 
     let view_contact = document.getElementById('init').style.display = "none";
     
-    //view contact
+    //   view contact
     function viewContact(id){
     let view_contact = document.getElementById('init').style.display = "block";
     localStore = JSON.parse(localStorage.getItem('localStore'));
@@ -151,7 +151,13 @@ updateUser.innerHTML = '<div id="col-form">' + '<input type="submit" value="Upda
         document.getElementById('telephone').innerHTML = localStore[i].tel;
         document.getElementById('Email').innerHTML = localStore[i].Email;
         }
+        if(localStore[i].id == id){
+        document.getElementById('viewButton').innerHTML = '<a onclick="onView('+localStore[i].id+')" title="Edit contact"><li><img src="images/Edit%20Profile_20px.png"/></li></a>';
+        }
+        
     }
+        
+        
 
     }
 
@@ -170,4 +176,5 @@ updateUser.innerHTML = '<div id="col-form">' + '<input type="submit" value="Upda
         
 
         },false);
+
 
