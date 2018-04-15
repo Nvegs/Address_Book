@@ -53,7 +53,6 @@
 
 
 
-
     </div>
     
     <div class="container" id="edit">
@@ -62,7 +61,9 @@
         <!----  title    ---->
         <div class="col-title">
             <img src="images/Edit%20Profile_gray_50px.png" />
-            <h1> Edit contact</h1>
+            <h1 class="shift"> Edit contact</h1>
+            <img class="close" onclick="closeButton()" src="images/Delete_30px.png" title="close">
+            
         </div>
         
         <!---- user list container   --->
@@ -112,13 +113,13 @@
         </div>
  </div> 
     
-    </div>
-    
+    </div>  
     <!--  view contact page -->
-        <div id="init" class="container col-view">
+    <div id="init" class="container col-view">
         <div class="col-title">
             <img src="images/User_50px.png" />
-            <h1 id="User"></h1>
+            <h1 class="shift" id="User"></h1>
+            <img id="close" onclick="closeButton()" src="images/Delete_30px.png" title="close">
         </div>
         
     <div class="lg-view">

@@ -7,7 +7,7 @@ if (localStorage.getItem('localStore') == null){
     localStorage.setItem('localStore', JSON.stringify([]));
 }
 
-  // store when submiting the form
+    // store when submiting the form
     function onSubmitData(){
 
 
@@ -44,31 +44,34 @@ id = new Date().getTime();
 
         for(var i=0; i<localStore.length; i++) {
             
-            let showValue = '<div id="secondary"><a><div class="sec-col"><img class="sec-col-img" src="images/Male%20User_100px.png" alt="User"><h1 class="sec-col-1" id="User_1">' +localStore[i].firstname+ ' ' + localStore[i].lastname+ '</h1><h2 class="sec-col-1" id="telephone_1">' +localStore[i].tel+ '</h2><h3 class="sec-col-1" id="Email_1">' +localStore[i].Email+ '</h3></div><figcaption class="col-delete"></button><button onclick="viewContact('+localStore[i].id+')"  title="view  contact"><li><img src="images/User_20px.png"></li></button><button onclick="onView('+localStore[i].id+')"  title="Edit contact"><li><img src="images/Edit Profile_20px.png"></li></button></a></figcaption></a></div>';
+            let showValue = '<div id="secondary"><a><div class="sec-col"><img class="sec-col-img" src="images/Male%20User_100px.png" alt="User"><h1 class="sec-col-1" id="User_1">' +localStore[i].firstname+ ' ' + localStore[i].lastname+ '</h1><h2 class="sec-col-1" id="telephone_1">' +localStore[i].tel+ '</h2><h3 id="underline" class="sec-col-1" id="Email_1">' +localStore[i].Email+ '</h3></div><figcaption class="col-delete"></button><button id="viewPop" onclick="viewContact('+localStore[i].id+')"  title="view  contact"><li><img src="images/User_20px.png"></li></button><button id="editPop" onclick="onView('+localStore[i].id+')"  title="Edit contact"><li><img src="images/Edit Profile_20px.png"></li></button></a></figcaption></a></div>';
 
             getCol.innerHTML += showValue;
         }
 
-
-
+//when it load view and edit event function.
+eventHandler();
+eventHandler1();
     }
 
-//retrieve all data list to be deleted
+    //retrieve all data list to be deleted
     function retDelDATA(){
      localStore = JSON.parse(localStorage.getItem('localStore'));
             let getDelCol = document.getElementById('deleteItem');
 
         for (var i=0; i < localStore.length; i++){
 
-    let showDelValue = '<div id="secondary"><div class="sec-col"><img class="sec-col-img" src="images/Male%20User_100px.png" alt="User"><h1 id="User" class="sec-col-1" >' +localStore[i].firstname+ ' ' + localStore[i].lastname+ '</h1><h2 id="telephone" class="sec-col-1" >' +localStore[i].tel+ '</h2><h3 id="Email" class="sec-col-1">' +localStore[i].Email+ '</h3></div><figcaption class="col-delete"><button  onclick="xamarin('+localStore[i].id+')"  title="Delete contact"><li><img src="images/Trash_20px.png"></li></button><button onclick="onView('+localStore[i].id+')"  title="Edit contact"><li><img src="images/Edit Profile_20px.png"></li></button></figcaption></div>';
+    let showDelValue = '<div id="secondary"><div class="sec-col"><img class="sec-col-img" src="images/Male%20User_100px.png" alt="User"><h1 id="User" class="sec-col-1" >' +localStore[i].firstname+ ' ' + localStore[i].lastname+ '</h1><h2 id="telephone" class="sec-col-1" >' +localStore[i].tel+ '</h2><h3 id="Email" class="sec-col-1 underline">' +localStore[i].Email+ '</h3></div><figcaption class="col-delete"><button  onclick="xamarin('+localStore[i].id+')"  title="Delete contact"><li><img src="images/Trash_20px.png"></li></button><button onclick="onView('+localStore[i].id+')"  title="Edit contact"><li><img src="images/Edit Profile_20px.png"></li></button></figcaption></div>';
 
          getDelCol.innerHTML += showDelValue;
 
             }
+        
+eventHandler1();
+    
     }
 
-
-//delete a particular user from the list
+    //delete a particular user from the list
     function xamarin(id){
    
 localStore = JSON.parse(localStorage.getItem('localStore'));
@@ -92,8 +95,26 @@ localStore = JSON.parse(localStorage.getItem('localStore'));
      
                     }
 
-//displays none for the edit page.
-    let edit = document.getElementById('edit').style.display = "none";
+    // edit to update existing data of that user.
+    function xenderIt(id){
+   localStore = JSON.parse(localStorage.getItem('localStore'));
+    var form = document.getElementById('myForm');
+    
+    for (let i = 0; i < localStore.length; i++){
+        
+        if (localStore[i].id == id){
+            localStore[i].firstname = form.fname.value;
+            localStore[i].lastname = form.lname.value;
+            localStore[i].Email = form.email.value;
+            localStore[i].tel = form.telephone.value;
+            //stringify it to update the object in the array
+            localStorage.setItem('localStore', JSON.stringify(localStore));
+            break;
+        }
+    }
+ 
+}
+
 
     function onView(id){
     //display block then clicked.
@@ -114,32 +135,10 @@ updateUser.innerHTML = '<div id="col-form">' + '<input type="submit" value="Upda
             break;
         }
     }
-   
+  eventHandler();
 }
-
-        //     update existing data
-    function xenderIt(id){
-   localStore = JSON.parse(localStorage.getItem('localStore'));
-    var form = document.getElementById('myForm');
-    
-    for (let i = 0; i < localStore.length; i++){
-        
-        if (localStore[i].id == id){
-            localStore[i].firstname = form.fname.value;
-            localStore[i].lastname = form.lname.value;
-            localStore[i].Email = form.email.value;
-            localStore[i].tel = form.telephone.value;
-            //stringify it to update the object in the array
-            localStorage.setItem('localStore', JSON.stringify(localStore));
-            break;
-        }
-    }
-    
-}
-
-    let view_contact = document.getElementById('init').style.display = "none";
-    
-    //   view contact
+ 
+    // view contact for each individual user.
     function viewContact(id){
     let view_contact = document.getElementById('init').style.display = "block";
     localStore = JSON.parse(localStorage.getItem('localStore'));
@@ -156,16 +155,41 @@ updateUser.innerHTML = '<div id="col-form">' + '<input type="submit" value="Upda
         }
         
     }
-        
-        
-
+    eventHandler1();
     }
 
+    //event for view and edit contact.
+    function eventHandler(){
+        document.getElementById('init').style.display = "none";
+        
+    if(document.getElementById('editPop') == true){
+      document.getElementById('init').style.display = "none";
+       }
+     
+    
+    
+       
+}
+    function eventHandler1(){
+        
+    document.getElementById('edit').style.display = "none";
+    if(document.getElementById('viewPop') == true){
+      document.getElementById('init').style.display = "none";
+       }
+     
+    
+    
+    
+       
+}
 
+    //closes all dialog boxes or modal pop up
+    function closeButton(){
+    document.getElementById('init').style.display = "none";
+    document.getElementById('edit').style.display = "none";
+}
 
-
-
-// to delete all data from localstorage.
+    // to delete all data from localstorage.
     let delAll = document.getElementById('delAll');
     delAll.addEventListener('click', function(){
         confirm('Do you want to delete all your contact')
@@ -176,5 +200,4 @@ updateUser.innerHTML = '<div id="col-form">' + '<input type="submit" value="Upda
         
 
         },false);
-
 
